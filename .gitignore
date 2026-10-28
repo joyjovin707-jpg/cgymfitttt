@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Production Build Artifacts
+dist/
+build/
+
+# Java Bytecode & Build Artifacts
+*.class
+java/bin/
+.gradle/
+target/
+
+# Local Environment & Secrets
+.env*
+!.env.example
+
+# OS & Editor Files
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+
+# Package Manager Locks & Caches
+bun.lock
+yarn.lock
+*.tmp

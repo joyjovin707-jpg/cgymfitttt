@@ -1,0 +1,29 @@
+# ==============================================================================
+# C-FIT GYM MANAGEMENT SYSTEM — APPLICATION CONFIGURATION (SPRING / JDBC)
+# Connects to MySQL Database via JDBC for cross-device synchronization
+# ==============================================================================
+
+server:
+  port: 8080
+
+spring:
+  config:
+    activate:
+      on-profile: mysql
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:cfit_db}?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: ${DB_USER:root}
+    password: ${DB_PASS:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+# Cross-Device Remote Access Settings
+cfit:
+  sync:
+    enabled: true
+    allow-cross-device: true
+    cors-allowed-origins: "*"
